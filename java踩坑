@@ -1,0 +1,10 @@
+- throw exception: [Ljava.lang.Object; cannot be cast to [Ljava.lang.String;
+
+原因：代码中 
+List<String> allNePath  = new ArrayList<>();
+return (String[]) allNePath.toArray();
+
+改成
+List<String> myArrayList = new ArrayList<String>();
+//.....
+String[] myArray = myArrayList.toArray(new String[myArrayList.size()]);
